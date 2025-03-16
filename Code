@@ -1,0 +1,119 @@
+# CyberPatriot Ubuntu 22 Training Image Answer Key
+
+Welcome to the CyberPatriot Training Round! This repository contains a detailed answer key for resolving common vulnerabilities in the CyberPatriot Ubuntu 22 Training Image. It serves as a guide to help participants develop critical cybersecurity skills by addressing security issues in a controlled environment.
+
+## Purpose and Overview
+This document provides:
+1. **Identified Vulnerabilities**: A list of issues scored in the training image.
+2. **Resolution Steps**: Guidance on identifying and fixing each vulnerability.
+3. **Cybersecurity Importance**: The rationale behind each solution and why it's crucial for system security.
+4. **Penalties**: Actions that could result in point deductions during the competition.
+
+By following these instructions, participants can prepare for real CyberPatriot competitions while understanding core cybersecurity principles.
+
+---
+
+## Resolved Vulnerabilities and Solutions
+
+### 1. Forensics Question 1 *(8 pts)*
+- **Issue**: Decode a base64 message and locate a deleted file in the Trash.
+- **Solution**: Use an online base64 decoder to reveal the message. Navigate to the Trash folder and open the file `l.jpg`.
+- **Answer**: `lion`
+- **Importance**: Understanding basic encoding techniques and familiarity with file recovery methods.
+
+### 2. Forensics Question 2 *(8 pts)*
+- **Issue**: Find the directory containing prohibited MP3 files.
+- **Solution**: Use `locate '*.mp3'` in the terminal to identify the directory. Remove the files from the specified directory.
+- **Importance**: Efficient file searches help address security issues like prohibited files.
+
+### 3. Remove Unauthorized User *(eli – 6 pts)*
+- **Issue**: Unauthorized user accounts exist on the system.
+- **Solution**: Access **Settings > Users**, unlock, and remove the user account. Delete associated files.
+- **Importance**: Limits access and minimizes attack surfaces.
+
+### 4. Demote Unauthorized Admin *(cornelius – 6 pts)*
+- **Issue**: An unauthorized user has administrator access.
+- **Solution**: Navigate to **Settings > Users**, unlock, and toggle off `Administrator` access.
+- **Importance**: Restricts critical system modifications to authorized users.
+
+### 5. Strengthen Weak Password *(alice – 6 pts)*
+- **Issue**: User account has an insecure password.
+- **Solution**: Change the password to meet security standards via **Settings > Users**.
+- **Importance**: Reduces the risk of password-cracking attacks.
+
+### 6. Add User to Group *(mariya – 7 pts)*
+- **Issue**: A required user-group configuration is missing.
+- **Solution**: Run `sudo gpasswd -a mariya pioneers` in the terminal.
+- **Importance**: Ensures proper access control and supports operational requirements.
+
+### 7. Enforce Minimum Password Length *(4 pts)*
+- **Issue**: No password length policy is enforced.
+- **Solution**: Edit `/etc/pam.d/common-password` to include `minlen=8`.
+- **Importance**: Prevents weak passwords and enhances account security.
+
+### 8. Disable Null Password Authentication *(6 pts)*
+- **Issue**: Empty passwords allow authentication.
+- **Solution**: Edit `/etc/pam.d/common-auth` to remove `nullok`.
+- **Importance**: Blocks unauthorized access through empty passwords.
+
+### 9. Enable UFW Protection *(6 pts)*
+- **Issue**: Host-based firewall is disabled.
+- **Solution**: Run `sudo ufw enable` in the terminal.
+- **Importance**: Allows only approved traffic and blocks unauthorized access.
+
+### 10. Install and Start X2GO Service *(5 pts)*
+- **Issue**: Required software (X2GO) is missing.
+- **Solution**: Run `sudo apt-get install x2goserver` to install the service.
+- **Importance**: Ensures operational efficiency and supports remote management.
+
+### 11. Disable or Remove Nginx Service *(6 pts)*
+- **Issue**: An unnecessary and insecure service is active.
+- **Solution**: Run `sudo systemctl stop nginx` and `sudo systemctl disable nginx`.
+- **Importance**: Reduces attack surfaces by disabling non-essential services.
+
+### 12. Enable Automatic Update Checks *(6 pts)*
+- **Issue**: System is not automatically checking for updates.
+- **Solution**: Configure **Software & Updates > Updates** to `Daily`.
+- **Importance**: Ensures timely patching of vulnerabilities.
+
+### 13. Update Firefox *(5 pts)*
+- **Issue**: Outdated software with known vulnerabilities.
+- **Solution**: Use **Software Updater** to update Firefox.
+- **Importance**: Protects against exploitations targeting outdated browsers.
+
+### 14. Update Thunderbird *(5 pts)*
+- **Issue**: Outdated email client poses a security risk.
+- **Solution**: Use **Software Updater** to update Thunderbird.
+- **Importance**: Secures communication by patching known issues.
+
+### 15. Remove Prohibited MP3 Files *(6 pts)*
+- **Issue**: Non-work-related files present on the system.
+- **Solution**: Identify with `locate '*.mp3'` and remove using `sudo rm`.
+- **Importance**: Avoids potential exploitation of media viewers and adheres to guidelines.
+
+### 16. Remove Prohibited Software *(AisleRiot – 5 pts)*
+- **Issue**: Unauthorized software is installed.
+- **Solution**: Run `sudo apt remove aisleriot` and `sudo apt autoremove -y`.
+- **Importance**: Reduces risks from unapproved applications.
+
+### 17. Disable Root SSH Login *(6 pts)*
+- **Issue**: Root login via SSH is enabled.
+- **Solution**: Edit `/etc/ssh/sshd_config` to set `PermitRootLogin no`.
+- **Importance**: Prevents misuse of superuser privileges.
+
+---
+
+## Penalties to Avoid
+1. **Stopping Critical Services** *(e.g., OpenSSH)*: -5 pts.
+2. **Removing Required Software** *(e.g., Firefox, Thunderbird, Perl)*: -5 pts per violation.
+3. **Disabling Essential Configurations**: Ensure proper functionality of competition requirements.
+
+---
+
+## Additional Notes
+- **CyberPatriot Guidelines**: Always refer to the README file on the Desktop for specific instructions.
+- **Best Practices**: These solutions align with CyberPatriot standards and promote general cybersecurity principles.
+
+---
+
+**Disclaimer**: This document is intended for training purposes within the CyberPatriot competition framework. It is not a substitute for comprehensive real-world cybersecurity practices.
