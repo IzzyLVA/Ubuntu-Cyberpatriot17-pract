@@ -11,6 +11,3 @@ This repository is dedicated to the CyberPatriot Ubuntu 22 Training Image. It in
 Participants can refer to the provided solutions and explanations to prepare for CyberPatriot competitions. All solutions follow competition-specific requirements.
 
 **Note**: Always refer to the official README file during competitions for specific instructions.
-
----
-Contributions are welcome! Please ensure any updates align with competition guidelines and cybersecurity best practices.
